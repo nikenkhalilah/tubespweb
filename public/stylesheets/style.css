@@ -1,8 +1,12 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.bg-custom-color {
+  background-color: #27374D;
 }
 
-a {
-  color: #00B7FF;
+.bg-custom-button {
+  background-color: #526D82;
+}
+
+.bg-custom-button:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s;
 }
