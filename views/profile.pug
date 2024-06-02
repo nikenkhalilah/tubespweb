@@ -1,0 +1,43 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    //- Tambahkan link untuk Preline UI CSS
+    link(rel='stylesheet', href='/stylesheets/preline.css')
+  body
+    //- Konten halaman di sini
+    //- Gunakan kelas Preline UI untuk gaya elemen
+    .preline-container
+      //- Bagian profil pengguna
+      .preline-profile
+        //- Gambar profil
+        img.preline-profile-picture(src='/path/to/profile-picture.jpg', alt='Profil Picture')
+        //- Nama pengguna
+        h2.profil-name Niken Khalilah Hamuti
+        //- NIM pengguna
+        span.profil-nim 2211523019
+
+  
+
+      //- Gunakan kelas Preline UI untuk membuat formulir
+      form.preline-form(method='POST', action='/update-profile')
+        //- Input untuk Nama
+        .preline-form-group
+          label(for='nama') Nama:
+          input.preline-form-control(type='text', id='nama', name='nama', value='Niken', readonly)
+        //- Input untuk NIM
+        .preline-form-group
+          label(for='nim') NIM:
+          input.preline-form-control(type='text', id='nim', name='nim', value='2211523019', readonly)
+        //- Input untuk Jurusan
+        .preline-form-group
+          label(for='jurusan') Jurusan:
+          input.preline-form-control(type='text', id='jurusan', name='jurusan', value='Sistem Informasi', readonly)
+        //- Input untuk Email
+        .preline-form-group
+          label(for='email') Email:
+          input.preline-form-control(type='email', id='email', name='email', value='nikenkhalilah@gmail.com', readonly)
+
+      //- Sertakan berkas JavaScript Preline UI di akhir dari elemen body
+      script(src="/preline.js")
