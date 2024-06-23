@@ -1,0 +1,20 @@
+.dashboard {
+  display: flex;
+  background-image: url('/public/images/fti.jpg'); /* Path to your image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.sidebar {
+  background-color: #9AC991;
+  width: 250px;
+  height: 100vh;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.5); /* White background with opacity for readability */
+}

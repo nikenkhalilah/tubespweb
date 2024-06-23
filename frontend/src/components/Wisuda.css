@@ -1,0 +1,46 @@
+.wisuda-container {
+    max-width: 800px;
+    margin: 50px;
+    margin-left: 175px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .wisuda-container h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .wisuda-form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .wisuda-form .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .wisuda-form .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .wisuda-form button {
+    padding: 10px 20px;
+    background-color: #4D7753;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .wisuda-form button:hover {
+    background-color: #3c6242;
+  }
+  
