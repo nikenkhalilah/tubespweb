@@ -1,14 +1,6 @@
 const Users = require('../models/Users'); 
 const jadwalWisuda = require('../models/jadwalWisuda'); 
 
-exports.tampilkanDashboard = async (req, res) => {
-    try {
-        res.render('dashboard'); 
-    } catch (error) {
-        console.error(error);
-        res.status(500).send('Terjadi kesalahan saat memuat halaman dashboard');
-    }
-};
 
 exports.tampilkanDaftarMahasiswa = async (req, res) => {
     try {
