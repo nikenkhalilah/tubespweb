@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pencarian</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body class="bg-neutral-100">
+  <div class="flex max-md:flex-col max-md:gap-0">
+    <div class="flex flex-col w-[27%] max-md:ml-0 max-md:w-full">
+      <div class="flex flex-col grow px-9 py-16 mx-auto w-full bg-gray-600 max-md:px-5">
+        <div class="flex-auto gap-3.5 mx-5 text-3xl text-center text-white whitespace-nowrap max-md:mx-2.5">
+          TechnoGrad
+        </div>
+        <div class="flex gap-3.5 px-7 py-2 mt-28 bg-gray-200 rounded-3xl max-md:px-5 max-md:mt-10">
+          <div class="flex flex-col justify-center items-center rounded-full bg-zinc-400 h-[25px] w-[25px]">
+            <div class="shrink-0 rounded-full bg-zinc-400 h-[25px] w-[25px]"></div>
+          </div>
+          <div class="flex-auto my-auto text-xs text-black">Home</div>
+        </div>
+        <div class="flex gap-3.5 px-7 py-2 mt-3 text-xs text-black bg-gray-200 rounded-3xl max-md:px-5">
+          <div class="shrink-0 rounded-full bg-zinc-400 h-[25px] w-[25px]"></div>
+          <div class="flex-auto my-auto">Pendaftaran Wisuda</div>
+        </div>
+        <div class="flex gap-3.5 px-7 py-2 mt-3 text-xs text-black bg-gray-200 rounded-3xl max-md:px-5">
+          <div class="shrink-0 rounded-full bg-zinc-400 h-[25px] w-[25px]"></div>
+          <div class="flex-auto my-auto">Informasi Biaya</div>
+        </div>
+        <div class="flex gap-3.5 px-7 py-2 mt-3 bg-gray-200 rounded-3xl max-md:px-5">
+          <div class="flex flex-col justify-center items-center rounded-full bg-zinc-400 h-[25px] w-[25px]">
+            <div class="shrink-0 rounded-full bg-zinc-400 h-[25px] w-[25px]"></div>
+          </div>
+          <div class="flex-auto my-auto text-xs text-black">Jadwal Wisuda</div>
+        </div>
+        <div class="flex gap-3.5 px-7 py-2 mt-3 bg-gray-200 rounded-3xl max-md:px-5">
+          <div class="flex flex-col justify-center items-center rounded-full bg-zinc-400 h-[25px] w-[25px]">
+            <div class="shrink-0 rounded-full bg-zinc-400 h-[25px] w-[25px]"></div>
+          </div>
+          <div class="flex-auto my-auto text-xs text-black">Pengumuman</div>
+        </div>
+        <div class="flex gap-3.5 px-7 py-2 mt-3 bg-gray-200 rounded-3xl max-md:px-5">
+          <div class="flex flex-col justify-center items-center rounded-full bg-zinc-400 h-[25px] w-[25px]">
+            <div class="shrink-0 rounded-full bg-zinc-400 h-[25px] w-[25px]"></div>
+          </div>
+          <div class="flex-auto my-auto text-xs text-black">
+            Galeri Foto & Video
+          </div>
+        </div>
+        <div class="flex gap-3.5 px-7 py-2 mt-3 text-xs text-black rounded-3xl shadow-sm bg-zinc-300 max-md:px-5">
+          <div class="shrink-0 rounded-full bg-zinc-400 h-[25px] w-[25px]"></div>
+          <div class="flex-auto my-auto">Portal Alumni</div>
+        </div>
+        <div>
+          <a href="/profile" class="flex gap-3.5 px-7 py-2 mt-60 bg-gray-200 rounded-3xl max-md:px-5 max-md:mt-10">
+            <div>
+              <div class="flex flex-col justify-center items-center rounded-full bg-zinc-400 h-[25px] w-[25px]">
+                <div class="shrink-0 rounded-full bg-zinc-400 h-[25px] w-[25px]"></div>
+              </div>
+              <div class="flex-auto my-auto text-xs text-black">Profile</div>
+            </div>
+          </a>
+        </div>
+        <div class="flex gap-3.5 px-7 py-2 mt-3 text-xs text-black bg-gray-200 rounded-3xl max-md:px-5">
+          <div class="shrink-0 rounded-full bg-zinc-400 h-[25px] w-[25px]"></div>
+          <div class="flex-auto my-auto">Log Out</div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col w-[73%] max-md:w-full">
+      <div class="flex flex-col grow text-black max-md:max-w-full">
+        <div class="flex justify-center items-center px-16 py-20 text-4xl text-center text-white bg-gray-600 max-md:px-5 max-md:max-w-full">
+          Pencarian Wisudawan
+        </div>
+        <div class="flex flex-col px-5 mt-10 max-w-full w-full">
+          <div class="text-2xl text-black max-md:max-w-full">
+            Pencarian berdasarkan nama wisudawan/ti
+          </div>
+          <form action="/cariMahasiswa" method="GET" class="flex gap-5 px-10 py-4 mt-6 text-xl text-white bg-gray-600 rounded-3xl max-md:flex-wrap max-md:px-5 max-md:max-w-full">
+            <input type="text" name="nama" class="w-full bg-gray-800 rounded-lg p-2 text-white outline-none focus:ring-2 focus:ring-gray-400" placeholder="Nama wisudawan/ti">
+            <button type="submit" class="flex-shrink-0 bg-gray-800 rounded-lg p-2 text-white font-bold focus:outline-none focus:ring-2 focus:ring-gray-400 hover:bg-gray-700">Cari</button>
+          </form>
+          <div class="flex flex-col gap-5 mt-7">
+            <div class="flex justify-between items-center px-4 py-2 text-lg text-center text-white bg-gray-600 rounded-3xl max-md:flex-wrap max-md:max-w-full">
+              <div>No</div>
+              <div>Nama</div>
+              <div>NIM</div>
+              <div>Jurusan</div>
+              <div>Email</div>
+              <div>Foto</div>
+            </div>
+            <% if (graduates && graduates.length > 0) { %>
+              <% graduates.forEach((graduate, index) => { %>
+                <div class="flex justify-between items-center px-4 py-2 text-lg text-white bg-gray-600 rounded-3xl max-md:flex-wrap max-md:max-w-full">
+                  <div><%= index + 1 %></div>
+                  <div><%= graduate.name %></div>
+                  <div><%= graduate.no_id %></div>
+                  <div><%= graduate.jurusan %></div>
+                  <div><%= graduate.email %></div>
+                  <div><img src="<%= graduate.photo %>" alt="Foto" class="w-8 h-8 rounded-full"></div>
+                </div>
+              <% }); %>
+            <% } else { %>
+              <div class="text-lg text-white bg-gray-600 rounded-3xl p-4 max-md:max-w-full">
+                Tidak ada wisudawan yang ditemukan.
+              </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center items-start px-8 py-5 mt-10 text-xs text-white bg-gray-600 max-md:px-5 max-md:mt-10 max-md:max-w-full">
+        © 2024 Fakultas Teknologi Informasi. All rights reserved.
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Mahasiswa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/@headlessui/react@1.5.0/dist/headlessui.css" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <main class="flex">
+    <!-- Sidebar -->
+    <div class="flex flex-col w-[25%] max-md:ml-0 max-md:w-full">
+      <div class="flex flex-col grow px-5 py-10 mx-auto w-full bg-gray-600 max-md:px-3">
+        <div class="self-end mt-2 mr-3 text-3xl text-center text-white max-md:mr-1.5">TechnoGrad - Admin</div>
+        
+        <div class="relative mt-20">
+          <button class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 w-full">
+            Home
+          </button>
+        </div>
+        
+        <div class="relative mt-2">
+          <button id="dropdownWisudawan" type="button" class="hs-dropdown-toggle py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 w-full">
+            Daftar Wisudawan
+            <svg class="hs-dropdown-open:rotate-180 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="relative mt-2">
+          <a href="#" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 w-full">
+            Diterima
+          </a>
+        </div>
+
+        <div class="relative mt-2">
+          <a href="#" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 w-full">
+            Ditolak
+          </a>
+        </div>
+
+        <div class="relative mt-2">
+          <button class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 w-full">
+            Informasi Biaya
+          </button>
+        </div>
+
+        <div class="relative mt-2">
+          <button class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 w-full">
+            Jadwal Wisuda
+          </button>
+        </div>
+
+        <div class="relative mt-2">
+          <a href="/daftarMahasiswa" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 w-full">
+            Portal Alumni
+          </a>
+        </div>
+
+        <div class="relative mt-40">
+          <button class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 w-full">
+            Profile
+          </button>
+        </div>
+
+        <div class="relative mt-2">
+          <button class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 w-full">
+            Log Out
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="flex-grow">
+      <h5 class="font-bold text-2xl m-5">Daftar Mahasiswa</h5>
+      <div class="container mx-auto">
+        <div class="overflow-x-auto">
+          <table class="min-w-full bg-white border border-gray-200">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="px-6 py-3 border-b border-gray-200 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">No</th>
+                <th class="px-6 py-3 border-b border-gray-200 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">NIM</th>
+                <th class="px-6 py-3 border-b border-gray-200 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Nama</th>
+                <th class="px-6 py-3 border-b border-gray-200 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Detail Info</th>
+                <th class="px-6 py-3 border-b border-gray-200 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Status</th>
+              </tr>
+            </thead>
+            <tbody class="striped-rows">
+              <% daftarMahasiswa.forEach((daftar, index) => { %>
+              <tr>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200"><%= index + 1 %></td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200"><%= daftar.no_id %></td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200"><%= daftar.name %></td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-center">
+                  <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs py-2 px-4 rounded w-20" onclick="lihatDetail('<%= daftar.id %>')">
+                    Lihat Detail
+                  </button>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-center">
+                  <button class="bg-green-600 hover:bg-green-700 text-white font-semibold text-xs py-2 px-4 rounded mr-2" onclick="terimaSurat('<%= daftar.id %>')">Diterima</button>
+                  <button class="bg-red-600 hover:bg-red-700 text-white font-semibold text-xs py-2 px-4 rounded" onclick="tolakSurat('<%= daftar.id %>')">Ditolak</button>
+                </td>
+              </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="justify-center items-start px-8 py-5 mt-12 text-xs text-white bg-gray-600 max-md:px-5 max-md:mt-10 max-md:max-w-full">
+    © 2024 Fakultas Teknologi Informasi. All rights reserved.
+  </div>
+
+  <div id="detailModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white rounded-lg p-6 w-1/3">
+      <h2 class="text-2xl font-semibold mb-4">Detail Wisudawan</h2>
+      <div class="space-y-2">
+        <div>
+          <span class="font-medium">Nama:</span>
+          <span id="modalNama">Niken Khalilah Hamuti</span>
+        </div>
+        <div>
+          <span class="font-medium">Email:</span>
+          <span id="modalEmail">nikenkhalilah@gmail.com</span>
+        </div>
+        <div>
+          <span class="font-medium">NIM:</span>
+          <span id="modalNim">2211523019</span>
+        </div>
+        <div>
+          <span class="font-medium">Jurusan:</span>
+          <span id="modalJurusan">Sistem Informasi</span>
+        </div>
+        <div>
+          <span class="font-medium">Status:</span>
+          <span id="modalStatus">Aktif</span>
+        </div>
+      </div>
+      <div class="mt-4 text-right">
+        <button class="bg-red-600 hover:bg-red-700 text-white font-semibold text-xs py-2 px-4 rounded" onclick="closeModal()">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function lihatDetail(id) {
+      // Simulasi data 
+      const wisudawan = {
+        nama: "Niken Khalilah Hamuti",
+        email: "nikenkhalilah@gmail.com",
+        nim: "2211523019",
+        jurusan: "Sistem Informasi",
+        status: "Aktif"
+      };
+
+      document.getElementById("modalNama").textContent = wisudawan.nama;
+      document.getElementById("modalEmail").textContent = wisudawan.email;
+      document.getElementById("modalNim").textContent = wisudawan.nim;
+      document.getElementById("modalJurusan").textContent = wisudawan.jurusan;
+      document.getElementById("modalStatus").textContent = wisudawan.status;
+
+      const modal = document.getElementById("detailModal");
+      modal.classList.remove("hidden");
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("detailModal");
+      modal.classList.add("hidden");
+    }
+
+    function terimaSurat(id) {
+      console.log("Mengirim permohonan terima dengan ID:", id);
+    }
+
+    function tolakSurat(id) {
+      console.log("Mengirim permohonan tolak dengan ID:", id);
+    }
+  </script>
+</body>
+</html>

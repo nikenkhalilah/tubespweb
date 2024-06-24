@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Mahasiswa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/@headlessui/react@1.5.0/dist/headlessui.css" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <main class="flex">
+    <!-- Sidebar -->
+    <div class="flex flex-col w-[25%] max-md:ml-0 max-md:w-full">
+      <div class="flex flex-col grow px-5 py-10 mx-auto w-full bg-gray-600 max-md:px-3">
+        <div class="self-end mt-2 mr-3 text-3xl text-center text-white max-md:mr-1.5">TechnoGrad - Admin</div>
+        
+        <div class="relative mt-20">
+          <button class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 w-full">
+            Home
+          </button>
+        </div>
+        
+        <div class="relative mt-2">
+          <button id="dropdownWisudawan" type="button" class="hs-dropdown-toggle py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 w-full">
+            Daftar Wisudawan
+            <svg class="hs-dropdown-open:rotate-180 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="relative mt-2">
+          <a href="#" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 w-full">
+            Diterima
+          </a>
+        </div>
+
+        <div class="relative mt-2">
+          <a href="#" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 w-full">
+            Ditolak
+          </a>
+        </div>
+
+        <div class="relative mt-2">
+          <button class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 w-full">
+            Informasi Biaya
+          </button>
+        </div>
+
+        <div class="relative mt-2">
+          <button class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 w-full">
+            Jadwal Wisuda
+          </button>
+        </div>
+
+        <div class="relative mt-2">
+          <a href="/daftarMahasiswa" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 w-full">
+            Portal Alumni
+          </a>
+        </div>
+
+        <div class="relative mt-40">
+          <button class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 w-full">
+            Profile
+          </button>
+        </div>
+
+        <div class="relative mt-2">
+          <button class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 w-full">
+            Log Out
+          </button>
+        </div>
+
+      </div>
+      </div>
+    </div>
+      <div class="flex flex-col ml-5 w-[73%] max-md:ml-0 max-md:w-full">
+        <div class="flex flex-col grow max-md:max-w-full">
+          <div
+            class="flex justify-center items-center px-16 py-20 text-4xl text-center text-black whitespace-nowrap bg-gray-600 max-md:px-5 max-md:max-w-full"
+          ></div>
+          <div
+            class="flex flex-col px-20 mt-20 max-md:px-5 max-md:mt-10 max-md:max-w-full"
+          >
+            <div
+              class="mx-5 text-3xl font-bold text-black max-md:mr-2.5 max-md:max-w-full"
+            >
+              Informasi Jadwal Acara
+            </div>
+            <div
+              class="flex gap-5 justify-between px-8 pt-6 pb-14 mx-5 mt-9 text-xl bg-white rounded-2xl border border-black border-solid shadow-[0px_4px_4px_rgba(0,0,0,0.25)] max-md:flex-wrap max-md:px-5 max-md:mr-2.5 max-md:max-w-full"
+            >
+              <div
+                class="flex flex-col self-start mt-3.5 text-black text-opacity-60"
+              >
+                <div>Periode</div>
+                <div class="mt-9">Hari/Tanggal</div>
+                <div class="mt-11 max-md:mt-10">Tempat Pelaksanaan</div>
+                <div class="mt-9">Waktu</div>
+                <!-- Icon Edit -->
+                <i class="fas fa-pen-to-square text-gray-400"></i>
+              </div>
+              <div class="flex flex-col font-medium text-black text-opacity-80">
+                <div class="flex gap-5 justify-between">
+                  <div class="my-auto">Wisuda II</div>
+                  <img
+                    loading="lazy"
+                    srcset="..."
+                    class="shrink-0 aspect-[1.18] w-[53px]"
+                  />
+                </div>
+                <div class="mt-5">Sabtu, 9 Maret 2024</div>
+                <div class="mt-11 max-md:mt-10">Ruang Seminar F Universitas</div>
+                <div class="mt-9">09:00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="justify-center items-start px-8 py-5 mt-80 text-xs text-black bg-gray-600 max-md:px-5 max-md:mt-10 max-md:max-w-full"
+        >
+          © 2024 Fakultas Teknologi Informasi. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

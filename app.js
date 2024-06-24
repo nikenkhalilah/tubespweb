@@ -6,6 +6,8 @@ var logger = require('morgan');
 const bodyParser = require('body-parser');
 const sequelize = require('./config/Database');
 const profileRouter = require('./routes/profile');
+const adminRouter = require('./routes/admin');
+const mahasiswaRouter = require('./routes/mahasiswa');
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -20,12 +22,14 @@ sequelize.sync().then(() => {
     console.error('Unable to sync database:', err);
 });
 
-// Set up EJS as template engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/profile', profileRouter);
+app.use('/', mahasiswaRouter); 
+app.use('/', adminRouter); 
+// app.use('/', graduatesRouter); 
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);

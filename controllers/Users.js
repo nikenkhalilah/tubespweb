@@ -1,6 +1,7 @@
-const Users = require("../models/UserModel");
+const Users = require("../models/Users");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const pembayaran = require("../models/pembayaran");
 
 const getUsers = async (req, res) => {
     try {
@@ -10,6 +11,7 @@ const getUsers = async (req, res) => {
         res.json(users);
     } catch (error) {
         console.log(error);
+        res.status(500).json({ msg: "Internal server error" });
     }
 }
 
@@ -89,23 +91,42 @@ const Logout = async (req, res) => {
 
 const lihatProfil = async (req, res) => {
     try {
-        // Ambil data pengguna dari tabel users
         const user = await Users.findOne({
-            where: { id: req.params.userId }, // Atau gunakan sesuai dengan kebutuhan, misalnya berdasarkan email
-            attributes: ['name', 'email']
+            where: { id: req.params.userId },
+            attributes: ['name','no_id', 'email','jurusan']
         });
-
-        // Pastikan pengguna ditemukan
         if (!user) {
             return res.status(404).json({ message: "User not found" });
         }
-
-        // Kirim data pengguna ke view
-        res.render('profile', { userName: user.name, userEmail: user.email });
+        res.render('profile', { userName: user.name, userEmail: user.email, userNim: user.no_id, userJurusan: user.jurusan });
     } catch (error) {
         console.error("Error during profile viewing: ", error);
         res.status(500).json({ message: "Internal server error" });
     }
 }
+const uploadPembayaran = async (req, res) => {
+    try {
+        const { id_pembayaran } = req.body;
+        const bukti_pembayaran = req.file ? req.file.buffer : null;
 
-module.exports = { lihatProfil };
+            if (!id_pembayaran || !bukti_pembayaran) {
+            return res.status(400).send('Id pembayaran dan bukti pembayaran harus diisi');
+}
+
+        const pembayaran = await Pembayaran.create({
+            id_pembayaran: id_pembayaran,
+            bukti_pembayaran: bukti_pembayaran
+        });
+        
+        if (pembayaran) {
+            return res.status(201).send('Pembayaran berhasil disimpan');
+        } else {
+            return res.status(500).send('Gagal menyimpan pembayaran');
+        }
+    } catch (error) {
+        console.error('Error saat menyimpan pembayaran:', error);
+        res.status(500).send('Terjadi kesalahan saat menyimpan pembayaran');
+    }
+};
+
+module.exports = { getUsers, Register, Login, Logout, lihatProfil, uploadPembayaran };
